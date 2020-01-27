@@ -7,3 +7,4 @@ module.exports = {
   CLIENT_URL: process.env.CLIENT_URL
   // JWT_EXPIRY: process.env.JWT_EXPIRY || '', // Possibly implement later
 };
+

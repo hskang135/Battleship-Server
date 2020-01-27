@@ -2,12 +2,19 @@
 
 Live app: https://capstone3-battleship.now.sh/
 
-Client GitHub: https://github.com/thinkful-ei-heron/Group1-Capstone3-Client
+Server GitHub: https://github.com/hskang135/Battleship-Server
+
+Client GitHub: https://github.com/hskang135/Battleship-Client
+
+_________
 
 ## API
+
 _________
+
 Unprotected-Endpoints
-_____________________
+
+_________
 
 `POST /api/signup` Creates new user if sucessful in signup attempt. Requires body to be an object with 'username' and 'password' keys. Returns 201 if sucessful.
 
@@ -20,11 +27,10 @@ _____________________
 
 `POST /api/login` Logs in a user if supplied with correct information. Requires body to be an object with 'username' and 'password' keys. Returns 200 with JWT if sucessful. 
 
-_____
+_________
 
 Protected-Endpoints
-___________________
-
+_________
 
 `POST /api/ships` Allows a user to store their ships in the database. Returns 201 if successful. Requires body to be an object in the shape of: 
 
@@ -145,13 +151,14 @@ ___________________
         winner: 'player1'
     } 
 
-___________
+_________
+
 Errors
 
 
 - `All Errors` will return with an error status and an object with an error key. The error message is written there. 
 
-______
+_________
 
 ## Sockets
 
@@ -169,7 +176,7 @@ Example client socket:
         }
     });
 
-___
+_________
 
 `On 'join_room'` Socket must provide either the string 'random' or a valid UUID pertaining to the room_id of a game they are a part of. If 'random' is provided they are connected to a game in the queue if there is one otherwise they are connected to a random room and put in the queue. 
 
@@ -177,7 +184,7 @@ This allows for the pairing of client's in a match. One cannot play against them
 
 If 'random' is provided the socket will be notified through the `joined` channel. Otherwise if a room id is provided the socket will be notified through the `reconnected` channel. 
 
-___
+_________
 
 `On 'fire'` Socket must provide an object with keys for the target they wish to fire upon, the game id and room id. 
 
@@ -191,10 +198,11 @@ Example object from client:
         roomId: [UUID]
     }
 
-___
+_________
 
 `On 'ships_ready'` Used to notify the other user that your ships have been set. The other user in the room will be notified through the `opponent_ready` channel. 
-___
+
+_________
 
 `On 'send-message'` Used to send a message to the other user in the room. This allows for chat functionality. Socket must provide an object with keys for the room and message they wish to send. 
 
@@ -207,7 +215,7 @@ Example object from client:
         message: 'This is the message.'
     }
 
-___
+_________
 
 ## Summary
 
@@ -215,15 +223,22 @@ This server allows for the connection of two users to facilitate playing the cla
 
 They are matched against other Users through the use of websockets and express routing. The gameplay is actively updated so players can play in real time. 
 
-The data is stored in a PostgreSQL database which allows users to player passively agaisnt their opponent as well. 
+The data is stored in a PostgreSQL database which allows users to player passively agaisnt their opponent as well.
+
+_________
 
 ## Technology Used
 
-Javascript, PostgreSQL, Express, Mocha, Chai, Socket .io
+Javascript, PostgreSQL, Express, Mocha, Chai, Socket.io, JWT
+
+_________
 
 ## Programmers
 
 - Aedan Warfield - Project Manager - https://www.linkedin.com/in/aedanwarfield/
+
 - Shannon Lichtenwalter - Product Owner - https://www.linkedin.com/in/shannon-lichtenwalter/
+
 - Sean Cooper - Quality Assurance - https://www.linkedin.com/in/sean-cooper-20799a185/
+
 - Heesu Kang - CSS Lead - https://www.linkedin.com/in/heesu-kang/
